@@ -43,13 +43,13 @@
             <i class="material-icons mdc-list-item__graphic" aria-hidden="true">description</i>
             <span class="mdc-list-item__text">Data</span>
           </a>
-          <a class="mdc-list-item" href="#mytable">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">view_list</i>
-            <span class="mdc-list-item__text">Table</span>
-          </a>
           <a class="mdc-list-item" href="#mychart">
-            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">table_chart</i>
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">view_list</i>
             <span class="mdc-list-item__text">Chart</span>
+          </a>
+          <a class="mdc-list-item" href="#mymap">
+            <i class="material-icons mdc-list-item__graphic" aria-hidden="true">table_chart</i>
+            <span class="mdc-list-item__text">Map</span>
           </a>
         </nav>
       </div>
@@ -84,14 +84,14 @@
           <span class="mdc-button__label">Load Data</span>
         </button>
         
-        <button class="mdc-button mdc-button--raised chart-button">
+        <button class="mdc-button mdc-button--raised map-button">
           <div class="mdc-button__ripple"></div>
           <span class="mdc-button__label">Show Location of Sensors</span>
         </button>
           
-        <button class="mdc-button mdc-button--raised table-button">
+        <button class="mdc-button mdc-button--raised chart-button">
           <div class="mdc-button__ripple"></div>
-          <span class="mdc-button__label">Show Table</span>
+          <span class="mdc-button__label">Show Chart</span>
         </button>
       </div>
         
@@ -99,13 +99,13 @@
         
         
       <!--------------> 
-      <!--Table Page-->
+      <!--Chart Page-->
       <!-------------->
-      <div class="view" id="mytable">
-        <h3 class="table-title">PM 2.5 Values</h3>
+      <div class="view" id="mychart">
+        <h3 class="table-title">Pollution Values</h3>
         <table class="columns">
           <tr>  
-            <td><div id="table_div" style="border: 2px solid #ccc"></div></td>
+            <td><div id="chart_div" style="border: 2px solid #ccc"></div></td>
           </tr>
         </table>
       </div>
@@ -113,9 +113,9 @@
         
         
       <!--------------> 
-      <!--Chart Page-->
+      <!---Map Page--->
       <!--------------> 
-      <div class="view" id="mychart">
+      <div class="view" id="mymap">
         
       </div>
         
@@ -126,7 +126,7 @@
     <script src="js/script.js"></script>
     <script src="js/data.js"></script>
     <script src="js/database.js"></script>
-    <script src="js/table.js"></script>
+    <script src="js/chart.js"></script>
     <script src="js/map.js"></script>
   
   </body>

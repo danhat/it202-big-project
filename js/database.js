@@ -10,7 +10,7 @@ data_button.addEventListener('click', (e) => {
   
   // Declare tables, IDs and indexes
   db.version(1).stores({
-    Pollution: '++id'
+    Pollution: '++id, sensor'
   });
 
   pm1_data.forEach(item => {

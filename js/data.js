@@ -2,7 +2,7 @@
 
 
 
-let url = 'https://api-of-things.plenar.io/api/observations?sensor=alphasense.opc_n2.pm2_5&size=10';
+let url = 'https://api-of-things.plenar.io/api/observations?sensor=alphasense.opc_n2.pm2_5&size=200';
 
 let pm25_data;
 fetch(url).then(response => {return response.json();})
@@ -13,7 +13,7 @@ fetch(url).then(response => {return response.json();})
 );
 
 
-let url2 = 'https://api-of-things.plenar.io/api/observations?sensor=alphasense.opc_n2.pm1&size=10';
+let url2 = 'https://api-of-things.plenar.io/api/observations?sensor=alphasense.opc_n2.pm1&size=200';
 let pm1_data;
 fetch(url2).then(response => {return response.json();})
   .then(json => {
@@ -22,7 +22,7 @@ fetch(url2).then(response => {return response.json();})
 );
 
 
-let url3 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.so2.concentration&size=10';
+let url3 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.so2.concentration&size=200';
 let so2_data;
 fetch(url3).then(response => {return response.json();})
   .then(json => {
@@ -32,7 +32,7 @@ fetch(url3).then(response => {return response.json();})
 
 
 
-let url4 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.o3.concentration&size=10';
+let url4 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.o3.concentration&size=200';
 let o3_data;
 fetch(url4).then(response => {return response.json();})
   .then(json => {
@@ -41,7 +41,7 @@ fetch(url4).then(response => {return response.json();})
 );
 
 
-let url5 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.no2.concentration&size=10';
+let url5 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.no2.concentration&size=200';
 let no2_data;
 fetch(url5).then(response => {return response.json();})
   .then(json => {
@@ -50,7 +50,7 @@ fetch(url5).then(response => {return response.json();})
 );
 
 
-let url6 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.h2s.concentration&size=10';
+let url6 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.h2s.concentration&size=200';
 let h2s_data;
 fetch(url6).then(response => {return response.json();})
   .then(json => {
@@ -61,7 +61,7 @@ fetch(url6).then(response => {return response.json();})
 
 
 
-let url7 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.co.concentration&size=10';
+let url7 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.co.concentration&size=200';
 let co_data;
 fetch(url7).then(response => {return response.json();})
   .then(json => {
