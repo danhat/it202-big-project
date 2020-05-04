@@ -16,6 +16,7 @@ body {
 
 main {
   margin-left: 8px;
+  height: 100%;
 }
 
 .view {
@@ -42,5 +43,19 @@ td {
   max-height: 200px;
   overflow-y: scroll;
 }
+
+#mychart {
+  height: 100%;
+}
+
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+
 
 
