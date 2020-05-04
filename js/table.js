@@ -13,15 +13,19 @@ table_button.addEventListener('click', (e) => {
   function drawTable() {
     let data = new google.visualization.DataTable();
     
+    data.addColumn('string', 'Sensor');
     data.addColumn('string', 'Timestamp');
-    data.addColumn('number', 'Value')
+    data.addColumn('number', 'Value');
+    data.addColumn('string', 'U.O.M.');
       
-    
+    console.log(pm25_data);
     pm25_data.forEach(item => {
       let row = [];
+      let sensor = item['sensor_path'];
       let time = item['timestamp'];
       let val = item['value'];
-      data.addRow([time, val]);
+      let uom = item['uom'];
+      data.addRow([sensor, time, val, uom]);
     });
     
 

@@ -1,4 +1,5 @@
 
+mdc.ripple.MDCRipple.attachTo(document.querySelector('.data-button'));
 
 mdc.ripple.MDCRipple.attachTo(document.querySelector('.chart-button'));
 

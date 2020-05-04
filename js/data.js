@@ -7,90 +7,67 @@ let url = 'https://api-of-things.plenar.io/api/observations?sensor=alphasense.op
 let pm25_data;
 fetch(url).then(response => {return response.json();})
   .then(json => {
-    console.log(json['data']);
-    pm25_data = json['data'];
-    
-    
-    const db = new Dexie('PM2.5 Database');
-
-    // Declare tables, IDs and indexes
-    db.version(1).stores({
-      PM25: '++id'
-    });
-
-
-    pm25_data.forEach(item => {
-      //console.log(item.location.geometry.coordinates[0]);
-      
-      db.PM25.add({
-        timestamp: item['timestamp'],
-        value: item['value'],
-        longitude: item.location.geometry.coordinates[0],
-        latitude: item.location.geometry.coordinates[1]
-      });
-    });
-    
-    db.PM25.toArray()
-      .then((array) => {
-        for (a of array){
-          console.log(a);
-        }
-
-      })
-      
-      console.log(pm_db);
-    
-    /*let node_location = {lat: 41.8781136, lng: -87.6297982}
-    
-    let map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 6,
-      center: node_location
-    });
-    
-
-    for (let i of inspection_data) {
-      let res = (i.inspection_date).split("T"); 
-      let contentString =  '<div id="content">' + 
-        '<h3 class = "firstHeading">' +
-        i.dba_name +
-        '</h3>' +
-        '<p>' +
-        i.facility_type +
-        '</p>' +
-        '<p>' +
-        i.address +
-        '</p>' +
-        '<p>' +
-        res[0] +
-        '</p>' +
-        '<p>' +
-        i.results +
-        '</p>' +
-
-        '</div>';
-
-
-      let infoWindow = new google.maps.InfoWindow({
-        content: contentString
-        //content: [i.dba_name]
-      });
-
-      let marker = new google.maps.Marker({
-        position: {lat: parseFloat(i["latitude"]), lng: parseFloat(i["longitude"])},
-        map: map,
-        title: i["dba_name"]
-      })
-
-      marker.addListener('click', function() {
-        infoWindow.open(map, marker);
-      });
-    }*/
-
-
-    
+    //console.log(json['data']);
+    pm25_data = json['data'];      
   }
 );
 
+
+let url2 = 'https://api-of-things.plenar.io/api/observations?sensor=alphasense.opc_n2.pm1&size=10';
+let pm1_data;
+fetch(url2).then(response => {return response.json();})
+  .then(json => {
+    pm1_data = json['data'];
+  }
+);
+
+
+let url3 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.so2.concentration&size=10';
+let so2_data;
+fetch(url3).then(response => {return response.json();})
+  .then(json => {
+    so2_data = json['data'];
+  }
+);
+
+
+
+let url4 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.o3.concentration&size=10';
+let o3_data;
+fetch(url4).then(response => {return response.json();})
+  .then(json => {
+    o3_data = json['data'];
+  }
+);
+
+
+let url5 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.no2.concentration&size=10';
+let no2_data;
+fetch(url5).then(response => {return response.json();})
+  .then(json => {
+    no2_data = json['data'];
+  }
+);
+
+
+let url6 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.h2s.concentration&size=10';
+let h2s_data;
+fetch(url6).then(response => {return response.json();})
+  .then(json => {
+    h2s_data = json['data'];
+  }
+);
+
+
+
+
+let url7 = 'https://api-of-things.plenar.io/api/observations?sensor=chemsense.co.concentration&size=10';
+let co_data;
+fetch(url7).then(response => {return response.json();})
+  .then(json => {
+    co_data = json['data'];
+  }
+);
 
 
 

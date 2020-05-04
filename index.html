@@ -10,7 +10,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>PM 2.5</title>
+    <title>Pollution in Chicago</title>
     
     <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
@@ -61,7 +61,7 @@
       <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
           <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
-          <span class="mdc-top-app-bar__title">COVID-19</span>
+          <span class="mdc-top-app-bar__title">Pollution in Chicago</span>
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
           <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Download">file_download</button>
@@ -79,9 +79,14 @@
       <!--Data Page-->
       <!------------->
       <div class="view" id="mydata">
+        <button class="mdc-button mdc-button--raised data-button">
+          <div class="mdc-button__ripple"></div>
+          <span class="mdc-button__label">Load Data</span>
+        </button>
+        
         <button class="mdc-button mdc-button--raised chart-button">
           <div class="mdc-button__ripple"></div>
-          <span class="mdc-button__label">Show Chart</span>
+          <span class="mdc-button__label">Show Location of Sensors</span>
         </button>
           
         <button class="mdc-button mdc-button--raised table-button">
@@ -120,6 +125,7 @@
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="js/script.js"></script>
     <script src="js/data.js"></script>
+    <script src="js/database.js"></script>
     <script src="js/table.js"></script>
     <script src="js/map.js"></script>
   
