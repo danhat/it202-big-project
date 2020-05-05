@@ -72,13 +72,85 @@ map_button.addEventListener('click', (e) => {
 
   getLocation();
   
-  let items = [pm25_data[0], pm1_data[0], so2_data[0], o3_data[0], no2_data[0], h2s_data[0], co_data[0]];
+  //let items = [pm25_data[0], pm1_data[0], so2_data[0], o3_data[0], no2_data[0], h2s_data[0], co_data[0]];
+  let items = [];
+  
+  for (let item of pm25_data) {
+    if (item.location.geometry.coordinates[1] != 0) {
+      items.push(item);
+      break;
+    }
+  }
+  
+  for (let item of pm1_data) {
+    if (item.location.geometry.coordinates[1] != 0) {
+      items.push(item);
+      break;
+    }
+  }
+  
+  for (let item of so2_data) {
+    if (item.location.geometry.coordinates[1] != 0) {
+      items.push(item);
+      break;
+    }
+  }
+  
+  for (let item of o3_data) {
+    if (item.location.geometry.coordinates[1] != 0) {
+      items.push(item);
+      break;
+    }
+  }
+  
+  for (let item of no2_data) {
+    if (item.location.geometry.coordinates[1] != 0) {
+      items.push(item);
+      break;
+    }
+  }
+  
+  for (let item of h2s_data) {
+    if (item.location.geometry.coordinates[1] != 0) {
+      items.push(item);
+      break;
+    }
+  }
+  
+  for (let item of co_data) {
+    if (item.location.geometry.coordinates[1] != 0) {
+      items.push(item);
+      break;
+    }
+  }
   
   for (let item of items) {
     console.log(item);
+    let sensor;
+    if (item['sensor_path'] == 'alphasense.opc_n2.pm2_5') {
+      sensor = 'PM 2.5';
+    }
+    else if (item['sensor_path'] == 'alphasense.opc_n2.pm1') {
+      sensor = 'PM 1';
+    }
+    else if (item['sensor_path'] == 'chemsense.so2.concentration') {
+      sensor = 'SO2';
+    }
+    else if (item['sensor_path'] == 'chemsense.o3.concentration') {
+      sensor = 'O3';
+    }
+    else if (item['sensor_path'] == 'chemsense.no2.concentration') {
+      sensor = 'NO2';
+    }
+    else if (item['sensor_path'] == 'chemsense.h2s.concentration') {
+      sensor = 'H2S';
+    }
+    else if (item['sensor_path'] == 'chemsense.co.concentration') {
+      sensor = 'CO';
+    }
     let contentString =  '<div id="content">' + 
       '<h3 class = "firstHeading">' +
-      item['sensor_path']  +
+      sensor  +
       '</h3>' +
       '<p>' +
       item['value']  +

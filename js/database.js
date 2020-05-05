@@ -4,7 +4,6 @@
 const db = new Dexie('Pollution Database');
 
 
-let data_button = document.querySelector('.data-button');
   
 data_button.addEventListener('click', (e) => {
   

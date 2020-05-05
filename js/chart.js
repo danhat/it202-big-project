@@ -31,42 +31,59 @@ chart_button.addEventListener('click', (e) => {
       data.addRow([item['sensor_path'], item['value']]);
     }*/
     
-    
-    
-    let item = pm25_data[0];
-    if (item > 0.0) {
-      data.addRow([item['sensor_path'], item['value']]);
+    let items = [];
+
+    for (let item of pm25_data) {
+      if (item['value'] > 0.0000000) {
+        data.addRow(['PM 2.5', item['value']]);
+        break;
+      }
+    }
+
+    for (let item of pm1_data) {
+      if (item['value'] > 0.0000000) {
+        data.addRow(['PM 1', item['value']]);
+        break;
+      }
+    }
+
+    for (let item of so2_data) {
+      if (item['value'] > 0.0000000) {
+        data.addRow(['SO2', item['value']]);
+        break;
+      }
+    }
+
+    for (let item of o3_data) {
+      if (item['value'] > 0.0000000) {
+        data.addRow(['O3', item['value']]);
+        break;
+      }
+    }
+
+    for (let item of no2_data) {
+      if (item['value'] > 0.0000000) {
+        data.addRow(['NO2', item['value']]);
+        break;
+      }
+    }
+
+    for (let item of h2s_data) {
+      if (item['value'] > 0.0000000) {
+        data.addRow(['H2S', item['value']]);
+        break;
+      }
+    }
+
+    for (let item of co_data) {
+      if (item['value'] > 0.0000000) {
+        data.addRow(['CO', item['value']]);
+        break;
+      }
     }
     
-    item = pm1_data[0];
-    if (item > 0.0) {
-      data.addRow([item['sensor_path'], item['value']]);
-    }
     
-    item = so2_data[0];
-    if (item > 0.0) {
-      data.addRow([item['sensor_path'], item['value']]);
-    }
     
-    item = o3_data[0];
-    if (item > 0.0) {
-      data.addRow([item['sensor_path'], item['value']]);
-    }
-    
-    item = no2_data[0];
-    if (item > 0.0) {
-      data.addRow([item['sensor_path'], item['value']]);
-    }
-    
-    item = h2s_data[0];
-    if (item > 0.0) {
-      data.addRow([item['sensor_path'], item['value']]);
-    }
-    
-    item = co_data[0];
-    if (item > 0.0) {
-      data.addRow([item['sensor_path'], item['value']]);
-    }
       
       
     /* 

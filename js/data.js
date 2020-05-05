@@ -1,7 +1,6 @@
 
 
 
-
 let url = 'https://api-of-things.plenar.io/api/observations?sensor=alphasense.opc_n2.pm2_5&size=200';
 
 let pm25_data;
@@ -68,6 +67,65 @@ fetch(url7).then(response => {return response.json();})
     co_data = json['data'];
   }
 );
+
+
+let data_button = document.querySelector('.data-button');
+  
+data_button.addEventListener('click', (e) => {
+  data_button.innerHTML = 'Refresh Data';
+ 
+  fetch(url).then(response => {return response.json();})
+    .then(json => {
+      //console.log(json['data']);
+      pm25_data = json['data'];      
+    }
+  );
+
+  fetch(url2).then(response => {return response.json();})
+    .then(json => {
+      pm1_data = json['data'];
+    }
+  );
+
+
+  fetch(url3).then(response => {return response.json();})
+    .then(json => {
+      so2_data = json['data'];
+    }
+  );
+
+
+
+  fetch(url4).then(response => {return response.json();})
+    .then(json => {
+      o3_data = json['data'];
+    }
+  );
+
+
+  fetch(url5).then(response => {return response.json();})
+    .then(json => {
+      no2_data = json['data'];
+    }
+  );
+
+
+  fetch(url6).then(response => {return response.json();})
+    .then(json => {
+      h2s_data = json['data'];
+    }
+  );
+
+
+
+  fetch(url7).then(response => {return response.json();})
+    .then(json => {
+      co_data = json['data'];
+    }
+  );
+  
+  
+})
 
 
 
