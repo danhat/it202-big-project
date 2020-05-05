@@ -93,15 +93,13 @@ data_button.addEventListener('click', (e) => {
   });
   
  
-
-
-  /*db.Pollution.toArray()
+  db.Pollution.toArray()
     .then((array) => {
       for (a of array){
-        console.log(a);
+        console.log(a.sensor_path);
       }
 
-    });*/
+    });
 
   
     

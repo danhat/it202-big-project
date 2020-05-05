@@ -12,6 +12,10 @@ map_button.addEventListener('click', (e) => {
     
   let chi_location = {lat: 41.8781136, lng: -87.6297982};
   let user_loc;
+  let map = new google.maps.Map(document.getElementById('mymap'), {
+      zoom: 6,
+      center: chi_location
+    });
   
   function getLocation() {
     if (navigator.geolocation) {
@@ -24,11 +28,8 @@ map_button.addEventListener('click', (e) => {
   function showPosition(position) {
     user_loc = {lat: (position.coords.latitude), lng: (position.coords.longitude)};
     //console.log(user_loc);
-    //
-    let map = new google.maps.Map(document.getElementById('mymap'), {
-      zoom: 6,
-      center: chi_location
-    });
+    
+   
     
     let infoWindow = new google.maps.InfoWindow({
       content: "You're Here"
@@ -45,23 +46,10 @@ map_button.addEventListener('click', (e) => {
     });
   }
   
+  
   function showError(error) {
-    /*switch(error.code) {
-      case error.PERMISSION_DENIED:
-        x.innerHTML = "User denied the request for Geolocation."
-        break;
-      case error.POSITION_UNAVAILABLE:
-        x.innerHTML = "Location information is unavailable."
-        break;
-      case error.TIMEOUT:
-        x.innerHTML = "The request to get user location timed out."
-        break;
-      case error.UNKNOWN_ERROR:
-        x.innerHTML = "An unknown error occurred."
-        break;
-    }*/
     
-    let map = new google.maps.Map(document.getElementById('mymap'), {
+    map = new google.maps.Map(document.getElementById('mymap'), {
       zoom: 6,
       center: chi_location
     });
@@ -73,7 +61,7 @@ map_button.addEventListener('click', (e) => {
     let marker = new google.maps.Marker({
       position: {lat: parseFloat(chi_location["lat"]), lng: parseFloat(chi_location["lng"])},
       map: map,
-      title: 'here'
+      title: 'Chicago'
     })
 
     marker.addListener('click', function() {
@@ -84,31 +72,39 @@ map_button.addEventListener('click', (e) => {
 
   getLocation();
   
-
-    
-  /*let map = new google.maps.Map(document.getElementById('mymap'), {
-    zoom: 6,
-    center: user_loc
-  });
-
-
-  let infoWindow = new google.maps.InfoWindow({
-    content: 'here'
-  });
-
-  let marker = new google.maps.Marker({
-    position: {lat: parseFloat(node_location["lat"]), lng: parseFloat(node_location["lng"])},
-    map: map,
-    title: 'here'
-  })
-
-  marker.addListener('click', function() {
-    infoWindow.open(map, marker);
-  });*/
-          
+  let items = [pm25_data[0], pm1_data[0], so2_data[0], o3_data[0], no2_data[0], h2s_data[0], co_data[0]];
   
-  
-  
+  for (let item of items) {
+    console.log(item);
+    let contentString =  '<div id="content">' + 
+      '<h3 class = "firstHeading">' +
+      item['sensor_path']  +
+      '</h3>' +
+      '<p>' +
+      item['value']  +
+      '</p>' +
+      '<p>' +
+      item['uom']  +
+      '</p>' +
+      '<p>' +
+      item['timestamp']  +
+      '</p>' +
+      '</div>';
+    let infoWindow = new google.maps.InfoWindow({
+      content: contentString 
+    });
+
+    let marker = new google.maps.Marker({
+      position: {lat: parseFloat(item.location.geometry.coordinates[1]), lng: parseFloat(item.location.geometry.coordinates[0])},
+      map: map,
+      title: 'here'
+    })
+
+    marker.addListener('click', function() {
+      infoWindow.open(map, marker);
+    });
+  }
+     
 
   
 })
